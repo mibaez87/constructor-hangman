@@ -1,6 +1,14 @@
 var Word = require("./word.js");
 var inquirer = require("inquirer");
 
+var userGuess = process.argv[3];
+
+var wordBank = ["strawberry", "mango", "kiwi", "banana", "peach", "coconut"];
+var random = Math.floor(Math.random() * wordBank.length);
+var answer = wordBank[random];
+
+var myWord = new Word();
+
 inquirer.prompt([
     {
         type: "confirm",
@@ -8,14 +16,12 @@ inquirer.prompt([
         message: "Would you like to play Hangman?",
         default: true
     }
-]).then(function (user){
-    if (user.playGame === true){
+]).then(function(user){
+    if (user.playGame){
         console.log("Great! First word: ");
         //function for displaying word
-        //conditional statement determining if user is correct or incorrect
+        myWord.getWord(answer);
     } else {
         console.log("Come back when you're ready to play!");
     }
 });
-
-//display word. display guess a letter underneath. CORRECT/INCORRECT re-display word with guesses remaining if INCORRECT

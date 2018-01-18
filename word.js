@@ -1,20 +1,16 @@
 var Letter = require("./letters.js");
-var userGuess = process.argv[3];
 
-var wordBank = ["strawberry", "mango", "kiwi", "banana", "peach", "coconut"];
-var random = Math.floor(Math.random() * wordBank.length);
-var answer = wordBank[random];
-
-var Word = () => {
-    this.answer = answer;
-    
+var Word = function() {    
     this.getWord = function(answer){
         var getWord = new Letter(answer);
 
-        getWord.isCorrect();
+        getWord.getLetters();
     }
+    console.log(`word.js ${answer}`);
 };
 
-console.log(answer);
-
 module.exports = Word;
+
+//display word. display guess a letter underneath
+//next display CORRECT/INCORRECT
+//then re-display word with guesses remaining if INCORRECT
