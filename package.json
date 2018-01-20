@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mibaez87/constructor-hangman#readme",
   "dependencies": {
-    "inquirer": "^5.0.0"
+    "inquirer": "^5.0.0",
+    "inquirer-recursive": "0.0.5"
   }
 }
