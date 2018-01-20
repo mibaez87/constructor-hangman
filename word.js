@@ -1,16 +1,34 @@
 var Letter = require("./letters.js");
 
-var Word = function() {    
-    this.getWord = function(answer){
-        var getWord = new Letter(answer);
+var Word = function (getWord) {
+    this.wordBank = ["strawberry", "mango", "kiwi", "banana", "peach", "coconut"];
+    this.random = Math.floor(Math.random() * wordBank.length);
+    this.answer = wordBank[random];
+    this.remGuess = 8;
 
-        getWord.getLetters();
-    }
-    console.log(`word.js ${answer}`);
+    this.initGame = function () {
+        inquirer.prompt([{
+            type: "input",
+            name: "userGuess",
+            message: "Guess a letter: "
+        }]).then(function (userGuess) {
+            // if (){
+            // console.log("CORRECT!");
+            // } else (){
+            // console.log("INCORRECT!");
+            // remGuess --;
+            // 
+            // }
+        });
+    };
+
+    // this.getWord = function () {
+    //     var getWord = new Letter("m");
+    //     console.log("getWord: ", getWord.getLetter());
+    //     console.log("displayLetter: ", getWord.displayLetter());
+    //     getWord.guessed = true;
+    //     console.log("displayLetter guessed true: ", getWord.displayLetter());
+    // }
 };
 
 module.exports = Word;
-
-//display word. display guess a letter underneath
-//next display CORRECT/INCORRECT
-//then re-display word with guesses remaining if INCORRECT
