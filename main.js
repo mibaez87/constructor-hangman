@@ -11,6 +11,7 @@ inquirer.prompt([{
 }]).then(function (user) {
     if (user.playGame) {
         myWord.initGame();
+        myWord.runGame();
     } else {
         console.log("Come back when you're ready to play!");
     }

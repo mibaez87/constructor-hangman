@@ -1,19 +1,19 @@
-var Letter = function (userGuess){
-    this.userGuess = userGuess.toUpperCase();
-    this.dash = "-";
+var Letter = function (answer){
+    this.answer = answer.toUpperCase();
+    this.userGuess;
+    this.dashes = "-".repeat(this.answer.length);
     this.guessed = false;
+    this.remGuess = 8;
 }
 
-Letter.prototype.getLetter = function() {
-    return this.userGuess;
-}
-
-Letter.prototype.displayLetter = function(){
-    if (this.guessed){
-        return this.letter;
+Letter.prototype.checkLetter = function(userGuess){
+    this.userGuess = this.answer.indexOf(userGuess.toUpperCase());
+    if (this.userGuess > -1) {
+        this.dashes[this.userGuess] = userGuess;
     } else {
-        return this.dash;
+        this.remGuess --;
     }
+    return this.dashes;
 }
 
 module.exports = Letter;
